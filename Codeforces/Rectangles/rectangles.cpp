@@ -9,7 +9,7 @@ typedef long long ll;
 const int N = 51;
 int dp[N][N] = {0};
 
-inline int rectangles(int n, int m) {
+inline int lines(int n, int m) {
     int hops = 4;
 
     dp[2][2] = 4;
@@ -26,21 +26,43 @@ inline int rectangles(int n, int m) {
     return dp[n][m];
 }
 
+int verify(int x, int y) {
+    int dx[] = {1, 0, -1, 0}, dy[] = {1, 0, -1, 0};
+
+    for (int i = 0; i < 4; i++) {
+        int xi = x + dx[i];
+        int yi = y + dy[i];
+    }
+}
+
+inline int pairs(vector<vector<int>> r, int n, int m) {
+    pair<int, int> p; 
+
+    for (int i = 1; i <= n; i++) {
+        for (int j = 1; j <= m; j++) {
+
+        }
+    }
+}
+
 int main() { _
     int n, m;
     cin >> n >> m;
 
     int cell;
+    vector<vector<int>> r(n + 1, vector<int>(m + 1, 0));
+
     for (int i = 1; i <= n; i++) {
         for (int j = 1; j <= m; j++) {
             cin >> cell;
+            r[i][j] = cell;
             if (i == 1 || j == 1) {
                 dp[i][j] = max(i, j);
             }
         }
     }
     
-    cout << rectangles(n, m) << endl;
+    cout << lines(n, m) + pairs(r, n, m) << endl;
 
 	return 0;
 }
